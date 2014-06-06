@@ -1,0 +1,107 @@
+// bower:scss
+// endbower
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ 
+body {
+    margin: 0 auto;
+    background-color: #4A6A8F;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    width: 100%;
+    min-width: 320px;
+    max-width: 720px;
+    background-color: white;
+    box-shadow: 1px 2px 5px #18375D;
+}
+
+.header {
+    position: relative;
+    display: inline-block;
+    // margin: 0 auto;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #70A3E0;
+}
+
+.header-inner {
+    margin-left: 40px;
+    border-left: 1px solid red;
+    width: 100%;
+    height: 80px;
+}
+
+.add-new-input {
+    margin-left: 5px;
+    position: absolute;
+    bottom: 5px;
+    width: 60%;
+    height: 30px;
+    max-width: 600px;
+    font-size: 1em;
+}
+
+.save-new {
+    position: absolute;
+    right: 44px;
+    bottom: 5px;
+    background-color: #397A1D;
+}
+
+.todo-container {
+    padding: 0 44px 0 0;
+    position: relative;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #70A3E0;
+}
+
+.todo {
+    padding: 14px 0 10px 0;
+    margin-left: 40px;
+    padding-left: 10px;
+    line-height: 40px;
+    border-left: 1px solid red;
+}
+ 
+.button {
+    margin-top: 3px;
+    float: right;
+    display: inline-block;
+    padding: 7px 14px;
+    color: white;
+    letter-spacing: .1em;
+    cursor: pointer;
+}
+ 
+.save-button {
+    background-color: #397A1D;
+}
+ 
+.delete-button {
+    background-color: #DB7368;
+}
+ 
+.edit-button {
+    margin-right: 5px;
+    background-color: #7ED09A;
+}
+
+
+
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
