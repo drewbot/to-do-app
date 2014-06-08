@@ -1,7 +1,7 @@
 //  Model
 
-// Defining a new model constructor with the name User
-User = Backbone.Model.extend({
+// Defining a new model constructor with the name Todo
+Todo = Backbone.Model.extend({
 
 	// When a new instance is created initialize will run this function with whatever callback we decide to add in the future 
 	initialize: function() {
@@ -18,20 +18,20 @@ User = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-// Creating a new collection constructor called UserCollection
-UserCollection = Backbone.Collection.extend({
-	// Referencing the User Model
-	model: User,
+// Creating a new collection constructor called TodoCollection
+TodoCollection = Backbone.Collection.extend({
+	// Referencing the Todo Model
+	model: Todo,
 	// attached to this api
-	url: 'http://tiny-pizza-server.herokuapp.com/collections/test-users',
+	url: 'http://tiny-pizza-server.herokuapp.com/collections/todo-drew',
 })
 
-// Defining a new view constructor - UserView
-UserView = Backbone.View.extend({
+// Defining a new view constructor - TodoView
+TodoView = Backbone.View.extend({
 
 	// Linking to the templates in our HTML doc
-	template: _.template($('.user-list-item').text()),
-	editTemplate: _.template($('.user-list-edit-item').text()),
+	template: _.template($('.todo-list-item').text()),
+	editTemplate: _.template($('.todo-list-edit-item').text()),
 
 	//  Defining events and listing the functions they run. 'click' alone will 
 	//  fire on this.el and any of its contents. All of these only apply to the
@@ -96,34 +96,34 @@ UserView = Backbone.View.extend({
 $(function() {
 	$('.save-new').click(function() {
 		var inputVal = $('.add-new-input').val()
-		var newUserInstance = coolUsers.add({
+		var newTodoInstance = newCollectionInstance.add({
 			name: inputVal
 		})
 
-		newUserInstance.save()
+		newTodoInstance.save()
 
 	})
 })
 
 // Create a new view contstructor, when an instance is created it will listen to the collection instance 
-// and create a new UserView instance, passing in the newly added user model as the model arguement
+// and create a new TodoView instance, passing in the newly added todo model as the model arguement
 AppView = Backbone.View.extend({
 
 	initialize: function() {
-		this.listenTo(coolUsers, 'add', function(user) {
-			new UserView({
-				model: user
+		this.listenTo(newCollectionInstance, 'add', function(todo) {
+			new TodoView({
+				model: todo
 			})
 		})
 	}
 
 });
 
-//  create instance of User Collection
-var coolUsers = new UserCollection();
+//  create instance of Todo Collection
+var newCollectionInstance = new TodoCollection();
 
 //  create instance of AppView
 var app = new AppView();
 
 // fetch the collection's models from the server
-coolUsers.fetch();
+newCollectionInstance.fetch();
